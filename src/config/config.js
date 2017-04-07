@@ -1,4 +1,4 @@
-export default CONFIG = {
+exports.CONFIG = {
   URL: 'http://localhost:8080/',
   SIGNUP: 'signup',
   ADDPOST: 'post',
@@ -10,8 +10,8 @@ export default CONFIG = {
   CHECK: 'checkjwt'
 }
 
-export default DBCONFIG = {
-	HOST: '127.0.0.1',
-	PORT: '27017',
-	DATABASE: 'ssrblog'
+exports.DBCONFIG = {
+  HOST: '127.0.0.1',
+  PORT: '27017',
+  DATABASE: 'ssrblog'
 }

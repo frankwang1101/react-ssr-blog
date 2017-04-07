@@ -5,49 +5,59 @@ import { isObjectEmpty } from './util'
 import User from '../database/User'
 
 //验证token
-export function checkJwt(token, cb) {
-  try {
-    const decode = jwt.decode(token, 'jwtSecret');
-    if (decode.exp > Date.now()) {
-      const id = decode.info._id;
-      const username = decode.info.username;
-      const url = 'http://localhost:8080/checkjwt';
-      fetch(url, {
-        method: 'post',
-        body: JSON.stringify({ _id: id, username: username })
-      }).then(res => res.json()).then(result => {
-        //存在用户数据，则存入state，否则去掉本地储存的token
-        if (result && isObjectEmpty(result)) {
-          cb(result);
-        }
-      })
+export function checkJwt(token) {
+  return new Promise((resolve, reject) => {
+    try {
+      const decode = jwt.decode(token, 'jwtSecret');
+      if (decode.exp > Date.now()) {
+        const id = decode.info._id;
+        const username = decode.info.username;
+        const url = 'http://localhost:8080/checkjwt';
+        fetch(url, {
+          method: 'post',
+          body: JSON.stringify({ _id: id, username: username })
+        }).then(res => res.json()).then(result => {
+          //存在用户数据，则存入state，否则去掉本地储存的token
+          if (result && isObjectEmpty(result)) {
+            resolve(result);
+          } else {
+            reject();
+          }
+        })
 
+      }
+    } catch (e) {
+      console.log(e)
     }
-  } catch (e) {
-    console.log(e)
-  }
+  })
 
 }
 
 export function serverJwtValid(token, cb) {
-  try {
-    const decode = jwt.decode(token, 'jwtSecret');
-    if (decode.exp > Date.now()) {
-      const _id = decode.info._id;
-      const username = decode.info.username;
-      User.checkjwt({ _id, username }).then(result => {
-        cb(result)
-      }).catch(err => {
-        console.log(err)
-        cb(err)
-      })
+  return new Promise((resolve, reject) => {
+    try {
+      const decode = jwt.decode(token, 'jwtSecret');
+      if (decode.exp > Date.now()) {
+        const _id = decode.info._id;
+        const username = decode.info.username;
+        User.checkjwt({ _id, username }).then(result => {
+          if(result && isObjectEmpty(result)){
+            resolve(result)
+          }else{
+            reject();
+          }
+        }).catch(err => {
+          throw new Error(err);
+        })
 
-    } else {
-      cb('登录验证已过期，请重新登录!')
+      } else {
+        reject('登录验证已过期，请重新登录!')
+      }
+    } catch (e) {
+      console.log(e);
+      throw new Error(e);
     }
-  } catch (e) {
-    console.log(e);
-  }
+  })
 }
 
 export function addToken(info, req) {

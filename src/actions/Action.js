@@ -1,7 +1,7 @@
 import { browserHistory } from 'react-router'
 import fetch from 'isomorphic-fetch'
 import * as Util from '../utils/util'
-import {CONFIG} from '../config/config'
+import { CONFIG } from '../config/config'
 
 export function register(data) {
   return () => {

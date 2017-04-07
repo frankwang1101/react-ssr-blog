@@ -20,7 +20,4 @@ export default class Text extends React.Component {
   }
 
 }
-Text.prototype = {
-  value: React.PropTypes.string,
-}
 

@@ -10,7 +10,9 @@ import Login from './Login'
 import Detail from './Detail'
 
 const UserIsAuthenticated = UserAuthWrapper({
-  authSelector: state => { console.log(state); return state.main.userInfo._id; }, // how to get the user state
+  authSelector: state => {
+    console.log(state); return state.main.userInfo._id ? state.main.userInfo : false;
+  }, // how to get the user state
   failureRedirectPath: '/login',
   redirectAction: routerActions.replace, // the redux action to dispatch for redirect
   wrapperDisplayName: 'UserIsAuthenticated' // a nice name for this auth check
