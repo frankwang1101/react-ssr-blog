@@ -30,7 +30,6 @@ const options = {
     historyApiFallback: true
 }
 app.use(webpackDevMiddleware(compiler,options));
-console.log('11111111111')
 app.use(require('webpack-hot-middleware')(compiler,{
     path:'/__webpack_hmr'
 }));
@@ -45,6 +44,6 @@ app.listen(port,err=>{
     if(err){
         console.error(err);
     } else {
-        console.info(`the webpack server has been listened at port: ${port},haha`)
+        console.info(`the webpack server has been listened at port: ${port}`)
     }
 })

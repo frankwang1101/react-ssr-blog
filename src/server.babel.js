@@ -14,10 +14,9 @@ global.webpack_isomorphic_tools = new Webpack_isomorphic_tools(require('../webpa
 //  and then it will return a Promise instead)
 .server(project_base_path, function()
 {
-    console.log('enter..')
   // webpack-isomorphic-tools is all set now.
   // here goes all your web application code:
   // (it must reside in a separate *.js file 
   //  in order for the whole thing to work)
-  require('./server.1.js');
+  require('./server.js');
 })
