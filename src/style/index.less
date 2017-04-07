@@ -1,0 +1,156 @@
+@a-blue:#108ee9;
+.wrap{
+    padding: 0;
+    margin: 0;
+    position: relative;
+    width: 1080px;
+    margin: 0 auto;
+    header{
+        height: 50px;
+        width: 100%;
+        line-height: 50px;
+        .title{
+            font-size: 25px;
+            font-weight: bold;
+            text-align: center;
+            .header-dropdown{
+                position: absolute;
+                top: 0;
+                right: 10px;
+            }
+        }
+        
+    }
+   
+    #components-form-demo-register .icp-selector {
+       width: 60px;
+    }
+}
+
+.header{
+    position: fixed;
+    width: 100%;
+    z-index: 11;
+}
+.content{
+    padding-top: 64px;
+    padding-bottom: 20px;
+    
+}
+.ant-dropdown-link.header-link{
+    font-size: 25px;
+    float: right;
+}
+
+.post-row{
+    width: 100%;
+    padding: 10px;
+    border:1px solid #ccc;
+    margin-bottom: 20px;
+    .row-block{
+        width: 100%;
+        float: left;
+    }
+    .info-area{
+        .info-title{
+            font-size: 25px;
+            height: 40px;
+            line-height: 40px;
+        }
+        .info-name{
+            font-size: 16px;
+            height: 30px;
+            line-height: 30px;
+        }
+        border-bottom:1px solid #ccc;
+    }
+    .content-area{
+        min-height: 300px;
+        padding: 10px 0;
+    }
+    .time-area{
+        font-size: 10px;
+        color: #999;
+        text-align: right;
+    }
+    .operate-area{
+        font-size: 10px;
+        color: #999;
+        text-align: right;
+    }
+    .comment-row{
+        padding: 5px 0;
+        border-bottom: 1px solid #ccc;
+        .comment-info-area{
+            height: 20px;
+            line-height: 20px;
+            .author{
+                font-size: 16px;
+                margin-right: 8px;
+            }
+            .create-at{
+                font-size: 12px;
+            }
+        }
+        .content{
+            padding: 5px 0;
+            word-break: break-all;
+        }
+        .operate{
+            height: 20px;
+            line-height: 20px;
+            .self-operate{
+                .edit{
+                    margin-right: 10px;
+                }
+                .delete:hover{
+                    color:@a-blue;
+                    cursor: pointer;
+                }
+                .edit:hover{
+                    color:@a-blue;
+                    cursor: pointer;
+                }
+            }
+        }
+        
+    }
+    .reply-area{
+        padding: 10px 0;
+        textarea{
+            margin-bottom: 10px;
+        }
+    }
+}
+.clearFix:after{
+    content:'';
+    visibility: hidden;
+    clear: both;
+    display: block;
+}
+
+.pull-right{
+    float: right;
+}
+.pull-left{
+    float: left;
+}
+
+.avatar-uploader,
+.avatar-uploader-trigger,
+.avatar {
+  width: 150px;
+  height: 150px;
+}
+.avatar-uploader {
+  display: block;
+  border: 1px dashed #d9d9d9;
+  border-radius: 6px;
+  cursor: pointer;
+}
+.avatar-uploader-trigger {
+  display: table-cell;
+  vertical-align: middle;
+  font-size: 28px;
+  color: #999;
+}
