@@ -1,18 +1,7 @@
 import { browserHistory } from 'react-router'
 import fetch from 'isomorphic-fetch'
 import * as Util from '../utils/util'
-
-const CONFIG = {
-  URL: 'http://localhost:8080/',
-  SIGNUP: 'signup',
-  ADDPOST: 'post',
-  POSTLIST: 'postlist',
-  LOGIN: 'login',
-  POST: 'post',
-  DELETEPOST: 'del',
-  COMMENT: 'comment',
-  CHECK: 'checkjwt'
-}
+import {CONFIG} from '../config/config'
 
 export function register(data) {
   return () => {
