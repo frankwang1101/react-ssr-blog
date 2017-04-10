@@ -30,9 +30,6 @@ var commonLoaders = [
     loader: 'json-loader'
   }
 ];
-/**
- * 这里有两个webpack配置项 1.服务端的打包 2.客户端的打包
- */
 module.exports = 
   {
     context: path.join(__dirname),

@@ -35,7 +35,24 @@
 .content{
     padding-top: 64px;
     padding-bottom: 20px;
-    
+    .avatar-uploader,
+    .avatar-uploader-trigger,
+    .avatar {
+    width: 150px;
+    height: 150px;
+    }
+    .avatar-uploader {
+    display: block;
+    border: 1px dashed #d9d9d9;
+    border-radius: 6px;
+    cursor: pointer;
+    }
+    .avatar-uploader-trigger {
+    display: table-cell;
+    vertical-align: middle;
+    font-size: 28px;
+    color: #999;
+    }
 }
 .ant-dropdown-link.header-link{
     font-size: 25px;
@@ -52,6 +69,7 @@
         float: left;
     }
     .info-area{
+        position: relative;
         .info-title{
             font-size: 25px;
             height: 40px;
@@ -61,6 +79,29 @@
             font-size: 16px;
             height: 30px;
             line-height: 30px;
+        }
+        .info-card{
+            width: 200px;
+            height: 90px;
+            padding: 10px;
+            position: absolute;
+            left: -220px;
+            background-color: #fff;
+            display: flex;
+            z-index: 2;
+            .avatar-info{
+                margin-right: 10px;
+            }
+            .word-info{
+                display: flex;
+                flex-direction: column;
+                width: 110px;
+                div{
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    white-space: nowrap;
+                }
+            }
         }
         border-bottom:1px solid #ccc;
     }
@@ -136,21 +177,3 @@
     float: left;
 }
 
-.avatar-uploader,
-.avatar-uploader-trigger,
-.avatar {
-  width: 150px;
-  height: 150px;
-}
-.avatar-uploader {
-  display: block;
-  border: 1px dashed #d9d9d9;
-  border-radius: 6px;
-  cursor: pointer;
-}
-.avatar-uploader-trigger {
-  display: table-cell;
-  vertical-align: middle;
-  font-size: 28px;
-  color: #999;
-}
