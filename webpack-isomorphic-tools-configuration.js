@@ -2,6 +2,7 @@ const Webpack_isomorphic_tools_plugin = require('webpack-isomorphic-tools/plugin
 
 module.exports = 
 {
+  patch_require: true,
   assets:
   {
     images:

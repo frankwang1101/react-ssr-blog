@@ -37,7 +37,8 @@ module.exports =
     output: {
       path: `${__dirname}/dist/assets`,
       publicPath: 'http://localhost:3001/assets/',
-      filename: 'bundle.js'
+      filename: 'bundle.js',
+      chunkFilename: "[name].chunk.js"
     },
     plugins: clientLoaders.concat([
       webpack_isomorphic_tools_plugin,
@@ -62,9 +63,7 @@ module.exports =
         {
           test: /\.jsx?$/,
           exclude: /node_modules/,
-          // loaders: ['react-hot','babel']
           loaders:['react-hot','babel'],
-
         },
         {
           test: /\.css$/,

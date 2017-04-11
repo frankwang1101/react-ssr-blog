@@ -21,7 +21,7 @@ function beforeUpload(file) {
 
 export default class Avatar extends React.Component {
   constructor(...args) {
-    super(args);
+    super(...args);
     this.handleChange = this.handleChange.bind(this)
     this.state = {};
   }

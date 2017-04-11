@@ -32,7 +32,6 @@ server.get('*', (req, res) => {
     } else if (renderProps) {
       let store = configuration(initialState)
       let state = store.getState()
-
       let apps = renderToString(<Provider store={store}><RouterContext {...renderProps} /></Provider>);
       const main = JSON.parse(fs.readFileSync(path.join(__dirname, '../webpack-assets.json'))).javascript.main;
       let injectScriptPath = main;
@@ -40,6 +39,7 @@ server.get('*', (req, res) => {
         body: apps,
         title: 'Hello World from the server',
         initialState: JSON.stringify(state),
+        isSsr: true,
         path: injectScriptPath
       }))
     } else {
